@@ -7,11 +7,13 @@ const flatMockServerConfig: FlatMockServerConfig = [
     baseUrl: '/api',
     database: {
       data: {
-        tasks,
-        settings: {
-          blocked: false
-        }
+        tasks
       }
+    },
+    cors: {
+      origin: 'http://localhost:5173',
+      methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+      allowedHeaders: ['Content-Type', 'Authorization']
     }
   }
 ];

@@ -2,6 +2,8 @@ import type { NavigateOptions } from 'react-router-dom';
 
 import { useNavigate } from 'react-router-dom';
 
+import { ROUTES } from '../routes';
+
 interface useGoBackParams {
   fallbackRoute?: string;
   options?: NavigateOptions
@@ -16,7 +18,7 @@ export const useGoBack = (params?: useGoBackParams) => {
     if (canGoBack) {
       navigate(-1);
     } else {
-      navigate(params?.fallbackRoute || '/', params?.options);
+      navigate(params?.fallbackRoute || ROUTES.HOME, params?.options);
     }
   };
 
