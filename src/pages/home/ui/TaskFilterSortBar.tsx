@@ -1,4 +1,4 @@
-import { Group, Select } from '@mantine/core';
+import { Group, Select, SimpleGrid } from '@mantine/core';
 import { useEffect, useMemo, useReducer, useState } from 'react';
 
 import type { Task, TaskCategory, TaskPriority, TaskStatus } from '@/shared/api';
@@ -104,7 +104,7 @@ export function TaskFilterSortBar({ setTasks }: TaskFilterSortBarProps) {
   }, [sortedTasks]);
 
   return (
-    <Group grow>
+    <SimpleGrid cols={{ base: 2, sm: 4 }}>
       <Select
         clearable
         data={CATEGORIES}
@@ -133,6 +133,6 @@ export function TaskFilterSortBar({ setTasks }: TaskFilterSortBarProps) {
         onChange={(value) => setSortingType(value as SortingType)}
         placeholder='Сортировать по'
       />
-    </Group>
+    </SimpleGrid>
   );
 };
