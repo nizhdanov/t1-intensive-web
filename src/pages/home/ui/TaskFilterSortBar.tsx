@@ -1,4 +1,4 @@
-import { Group, Select, SimpleGrid } from '@mantine/core';
+import { Select, SimpleGrid } from '@mantine/core';
 import { useEffect, useMemo, useReducer, useState } from 'react';
 
 import type { Task, TaskCategory, TaskPriority, TaskStatus } from '@/shared/api';
