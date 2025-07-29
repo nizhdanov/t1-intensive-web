@@ -1,3 +1,7 @@
+Deploy: [Vercel App](https://t1-intensive.vercel.app/)
+
+Backend: [GitHub](https://github.com/nizhdanov/t1-intensive-server)
+
 # Функционал
 - CRUD операции реализованы в экшенах стора;
 - Страница - Главная (Фильтрация и сортировка);
