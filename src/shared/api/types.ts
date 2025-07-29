@@ -13,3 +13,7 @@ export interface Task {
   status: TaskStatus;
   title: string;
 }
+
+export interface CreateTaskDto extends Omit<Task, 'id'> {}
+
+export interface UpdateTaskDto extends Partial<CreateTaskDto> {}

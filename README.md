@@ -7,7 +7,6 @@
 # Инструкцию по запуску проекта
 ```bash
 pnpm install # Установка зависимостей
-pnpm run mcs # Запуск mock сервера
 pnpm run dev # Запуск dev приложения
 ```
 
@@ -15,7 +14,6 @@ pnpm run dev # Запуск dev приложения
 - Основа - React, Vite, TS
 - UI библиотека - Mantine
 - HTTP клиент для запросов - ofetch (простая надстройка над fetch)
-- Mock - mock-config-server
 - External SM - Zustand
 - ESLint свой конфиг поверх конфига antfu, используется так же для форматирования кода.
 

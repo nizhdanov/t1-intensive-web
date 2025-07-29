@@ -13,8 +13,17 @@ export function TaskEditPage() {
   const task = useTaskStore((state) => state.tasks?.[taskId!]);
   const updateTask = useTaskStore((state) => state.updateTask);
 
-  const onSubmit = (task: Omit<Task, 'id'>) => {
-    updateTask(taskId!, task);
+  const onSubmit = (values: Omit<Task, 'id'>) => {
+    if (!task) return;
+
+    const { id, ...taskWithoutId } = task;
+
+    const entries = Object.entries(values);
+    const changes = Object.fromEntries(
+      entries.filter(([key, value]) => value !== taskWithoutId[key])
+    );
+    console.log(changes);
+    updateTask(id, changes);
     navigate(ROUTES.HOME);
   };
 

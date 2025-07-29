@@ -1,6 +1,6 @@
 import { ofetch } from 'ofetch';
 
 export const api = ofetch.create({
-  baseURL: 'http://localhost:31299/api',
+  baseURL: import.meta.env.VITE_API_URL,
   mode: 'cors'
 });

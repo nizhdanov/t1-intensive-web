@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-import type { Task } from '@/shared/api';
+import type { Task, UpdateTaskDto } from '@/shared/api';
 
 import { createTask, getTasks } from '../api/requests/tasks';
 import { deleteTask, updateTask } from '../api/requests/tasks/[id]';
@@ -15,7 +15,7 @@ interface Actions {
   createTask: (dto: Omit<Task, 'id'>) => void;
   deleteTask: (id: string) => void;
   fetchTasks: () => void;
-  updateTask: (id: string, dto: Omit<Task, 'id'>) => void;
+  updateTask: (id: string, dto: UpdateTaskDto) => void;
 }
 
 export const useTaskStore = create<State & Actions>((set) => {
@@ -45,7 +45,7 @@ export const useTaskStore = create<State & Actions>((set) => {
     }),
     updateTask: async (id, dto) => withLoading(async () => {
       const task = await updateTask({ id, dto });
-      set((state) => ({ tasks: { ...state.tasks, [task.id]: { id, ...dto } } }));
+      set((state) => ({ tasks: { ...state.tasks, [task.id]: task } }));
     }),
     deleteTask: async (id) => withLoading(async () => {
       await deleteTask({ id });
