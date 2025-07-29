@@ -18,11 +18,10 @@ export function TaskEditPage() {
 
     const { id, ...taskWithoutId } = task;
 
-    const entries = Object.entries(values);
-    const changes = Object.fromEntries(
-      entries.filter(([key, value]) => value !== taskWithoutId[key])
+    const changes = Object.fromEntries(Object.entries(values).filter(([key, value]) =>
+      taskWithoutId[key as keyof typeof taskWithoutId] !== value)
     );
-    console.log(changes);
+
     updateTask(id, changes);
     navigate(ROUTES.HOME);
   };
